@@ -1,0 +1,348 @@
+
+*** Running vivado
+    with args -log miTo.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source miTo.tcl
+
+
+
+****** Vivado v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source miTo.tcl -notrace
+Command: synth_design -top miTo -part xc7k70tfbv676-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7k70t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k70t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 7644
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:20 . Memory (MB): peak = 917.168 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'miTo' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/miTo.vhd:23]
+INFO: [Synth 8-3491] module 'control_unit' declared at 'C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/control_unit.vhd:13' bound to instance 'control_unit_i' of component 'control_unit' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/miTo.vhd:48]
+INFO: [Synth 8-638] synthesizing module 'control_unit' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/control_unit.vhd:42]
+INFO: [Synth 8-256] done synthesizing module 'control_unit' (1#1) [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/control_unit.vhd:42]
+INFO: [Synth 8-3491] module 'data_path' declared at 'C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:13' bound to instance 'data_path_i' of component 'data_path' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/miTo.vhd:75]
+INFO: [Synth 8-638] synthesizing module 'data_path' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:41]
+WARNING: [Synth 8-614] signal 'jump_adress' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:111]
+WARNING: [Synth 8-614] signal 'program_counter' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:111]
+WARNING: [Synth 8-6044] Case expression and choice expression width mismatch, Case expression is 4 wide and choice expression is 5 wide [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:193]
+WARNING: [Synth 8-6044] Case expression and choice expression width mismatch, Case expression is 4 wide and choice expression is 5 wide [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:194]
+WARNING: [Synth 8-6044] Case expression and choice expression width mismatch, Case expression is 4 wide and choice expression is 5 wide [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:195]
+WARNING: [Synth 8-6044] Case expression and choice expression width mismatch, Case expression is 4 wide and choice expression is 5 wide [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:196]
+WARNING: [Synth 8-6044] Case expression and choice expression width mismatch, Case expression is 4 wide and choice expression is 5 wide [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:197]
+WARNING: [Synth 8-614] signal 'alu_out' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:189]
+WARNING: [Synth 8-614] signal 'IRWrite' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'saida_memoria' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'alu_out' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'zero_datapath' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'neg_datapath' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'a_addr' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg0' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg1' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg2' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg3' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg4' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg5' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg6' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg7' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg8' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg9' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg10' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg11' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg12' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg13' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg14' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg15' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg16' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg17' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg18' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg19' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg20' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg21' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg22' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg23' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg24' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg25' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg26' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg27' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg28' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg29' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg30' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'reg31' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'b_addr' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'RegWrite' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'c_addr' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+WARNING: [Synth 8-614] signal 'write_data' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:207]
+INFO: [Synth 8-256] done synthesizing module 'data_path' (2#1) [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:41]
+INFO: [Synth 8-3491] module 'memory' declared at 'C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:14' bound to instance 'memory_i' of component 'memory' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/miTo.vhd:102]
+INFO: [Synth 8-638] synthesizing module 'memory' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:26]
+WARNING: [Synth 8-614] signal 'rst_n' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:35]
+WARNING: [Synth 8-614] signal 'escrita' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:35]
+WARNING: [Synth 8-614] signal 'mem' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:35]
+WARNING: [Synth 8-614] signal 'endereco_memoria' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:35]
+WARNING: [Synth 8-614] signal 'entrada_memoria' is read in the process but is not in the sensitivity list [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:35]
+INFO: [Synth 8-256] done synthesizing module 'memory' (3#1) [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:26]
+INFO: [Synth 8-256] done synthesizing module 'miTo' (4#1) [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/miTo.vhd:23]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:10 ; elapsed = 00:00:33 . Memory (MB): peak = 985.891 ; gain = 68.723
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:34 . Memory (MB): peak = 985.891 ; gain = 68.723
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7k70tfbv676-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:34 . Memory (MB): peak = 985.891 ; gain = 68.723
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7k70tfbv676-1
+WARNING: [Synth 8-327] inferring latch for variable 'reg31_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:260]
+WARNING: [Synth 8-327] inferring latch for variable 'reg30_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:259]
+WARNING: [Synth 8-327] inferring latch for variable 'reg29_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:258]
+WARNING: [Synth 8-327] inferring latch for variable 'reg28_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:257]
+WARNING: [Synth 8-327] inferring latch for variable 'reg27_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:256]
+WARNING: [Synth 8-327] inferring latch for variable 'reg26_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:255]
+WARNING: [Synth 8-327] inferring latch for variable 'reg25_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:254]
+WARNING: [Synth 8-327] inferring latch for variable 'reg24_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:253]
+WARNING: [Synth 8-327] inferring latch for variable 'reg23_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:252]
+WARNING: [Synth 8-327] inferring latch for variable 'reg22_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:251]
+WARNING: [Synth 8-327] inferring latch for variable 'reg21_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:250]
+WARNING: [Synth 8-327] inferring latch for variable 'reg20_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:249]
+WARNING: [Synth 8-327] inferring latch for variable 'reg19_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:248]
+WARNING: [Synth 8-327] inferring latch for variable 'reg18_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:247]
+WARNING: [Synth 8-327] inferring latch for variable 'reg17_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:246]
+WARNING: [Synth 8-327] inferring latch for variable 'reg16_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:245]
+WARNING: [Synth 8-327] inferring latch for variable 'reg15_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:244]
+WARNING: [Synth 8-327] inferring latch for variable 'reg14_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:243]
+WARNING: [Synth 8-327] inferring latch for variable 'reg13_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:242]
+WARNING: [Synth 8-327] inferring latch for variable 'reg12_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:241]
+WARNING: [Synth 8-327] inferring latch for variable 'reg11_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:240]
+WARNING: [Synth 8-327] inferring latch for variable 'reg10_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:239]
+WARNING: [Synth 8-327] inferring latch for variable 'reg9_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:238]
+WARNING: [Synth 8-327] inferring latch for variable 'reg8_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:237]
+WARNING: [Synth 8-327] inferring latch for variable 'reg7_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:236]
+WARNING: [Synth 8-327] inferring latch for variable 'reg6_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:235]
+WARNING: [Synth 8-327] inferring latch for variable 'reg5_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:234]
+WARNING: [Synth 8-327] inferring latch for variable 'reg4_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:233]
+WARNING: [Synth 8-327] inferring latch for variable 'reg3_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:232]
+WARNING: [Synth 8-327] inferring latch for variable 'reg2_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:231]
+WARNING: [Synth 8-327] inferring latch for variable 'reg1_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:230]
+WARNING: [Synth 8-327] inferring latch for variable 'reg0_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:229]
+WARNING: [Synth 8-327] inferring latch for variable 'instruction_register_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:153]
+WARNING: [Synth 8-327] inferring latch for variable 'memory_data_register_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/data_path.vhd:215]
+WARNING: [Synth 8-327] inferring latch for variable 'saida_memoria_reg' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:555]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[0]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[1]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[2]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[3]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[4]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[5]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[6]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[7]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[8]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[9]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[10]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[11]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[12]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[13]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[14]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[15]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[16]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[17]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[18]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[19]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[20]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[21]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[22]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[23]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[24]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[25]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[26]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[27]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[28]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[29]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[30]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[31]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[32]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[33]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[34]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[35]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[36]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[37]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[38]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[39]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[40]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[41]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[42]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[43]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[44]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[45]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[46]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[47]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[48]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[49]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[50]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[51]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[52]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[53]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[54]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[55]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[56]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[57]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[58]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[59]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[60]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[61]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[62]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[63]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_reg[64]' [C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.srcs/sources_1/new/memory.vhd:40]
+INFO: [Common 17-14] Message 'Synth 8-327' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:31 ; elapsed = 00:00:54 . Memory (MB): peak = 1181.133 ; gain = 263.965
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 2     
+	   2 Input    9 Bit       Adders := 1     
++---Muxes : 
+	  32 Input   32 Bit        Muxes := 34    
+	   2 Input   32 Bit        Muxes := 99    
+	   2 Input   16 Bit        Muxes := 512   
+	   2 Input    9 Bit        Muxes := 2     
+	   2 Input    5 Bit        Muxes := 2     
+	  32 Input    1 Bit        Muxes := 64    
+	   2 Input    1 Bit        Muxes := 862   
+	   6 Input    1 Bit        Muxes := 32    
+	   3 Input    1 Bit        Muxes := 256   
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:01:12 . Memory (MB): peak = 1188.359 ; gain = 271.191
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:01:12 . Memory (MB): peak = 1197.141 ; gain = 279.973
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:47 ; elapsed = 00:01:12 . Memory (MB): peak = 1197.363 ; gain = 280.195
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:51 ; elapsed = 00:01:16 . Memory (MB): peak = 1197.363 ; gain = 280.195
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:51 ; elapsed = 00:01:16 . Memory (MB): peak = 1197.363 ; gain = 280.195
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:51 ; elapsed = 00:01:16 . Memory (MB): peak = 1197.363 ; gain = 280.195
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:51 ; elapsed = 00:01:16 . Memory (MB): peak = 1197.363 ; gain = 280.195
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:51 ; elapsed = 00:01:16 . Memory (MB): peak = 1197.363 ; gain = 280.195
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:51 ; elapsed = 00:01:16 . Memory (MB): peak = 1197.363 ; gain = 280.195
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+------+------+
+|      |Cell  |Count |
++------+------+------+
+|1     |OBUFT |    33|
++------+------+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |    33|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:51 ; elapsed = 00:01:17 . Memory (MB): peak = 1197.363 ; gain = 280.195
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 602 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:51 ; elapsed = 00:01:17 . Memory (MB): peak = 1197.363 ; gain = 280.195
+Synthesis Optimization Complete : Time (s): cpu = 00:00:51 ; elapsed = 00:01:17 . Memory (MB): peak = 1197.363 ; gain = 280.195
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 1209.301 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1225.711 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+22 Infos, 155 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:57 ; elapsed = 00:01:35 . Memory (MB): peak = 1225.711 ; gain = 308.543
+INFO: [Common 17-1381] The checkpoint 'C:/Users/miche/OneDrive/Documentos/32-bitMips-master/miTo.runs/synth_1/miTo.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file miTo_utilization_synth.rpt -pb miTo_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Fri May 26 14:30:13 2023...

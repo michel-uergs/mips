@@ -37,7 +37,6 @@ begin
 			
 	if(rst_n = '1') then
 			--  reset memory when rst_n = 1 
-			 
 			mem(0)    <= "0000000000000000"; 
 			mem(1)    <= "0000000000000000";
 			mem(2)    <= "0000000000000000";
@@ -294,7 +293,7 @@ begin
 			mem(253)  <= "0000000000000000";
 			mem(254)  <= "0000000000000000";
 			mem(255)  <= "0000000000000000";
-			mem(256)  <= "0000000000000000";
+			mem(256)  <= "0000000000000000";  --fim memoria instrucao
 			mem(257)  <= "0000000000000000";
 			mem(258)  <= "0000000000000000";
 			mem(259)  <= "0000000000000000";
@@ -553,8 +552,8 @@ begin
 	else
 	    -- read from memory
 		if((escrita = '0'))then 
-		        saida_memoria(31 downto 16) <= mem(to_integer(unsigned(endereco_memoria)));
-				saida_memoria(15 downto 0) <= mem(to_integer(unsigned(endereco_memoria+1)));
+		    saida_memoria(31 downto 16) <= mem(to_integer(unsigned(endereco_memoria)));
+			saida_memoria(15 downto 0) <= mem(to_integer(unsigned(endereco_memoria+1)));
 		-- write in memory		
 		elsif ((escrita = '1')) then 		
 			mem(to_integer(unsigned(endereco_memoria))) <= entrada_memoria(31 downto 16);

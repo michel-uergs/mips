@@ -34,26 +34,13 @@ entity control_unit is
         decoded_inst        : in   decoded_instruction_type;
         zero                : in   std_logic;
         neg                 : in   std_logic
-
     );
 end control_unit;
 
 
 architecture rtl of control_unit is
-        
 begin
-    PCWrite    <= '0';
-    IorD       <= '0';
-    PCsource   <= '0';
-    MemRead    <= '0';
-    MemWrite   <= '0';
-    MentoReg   <= '0';
-    IRWrite    <= '0';
-    RegDst     <= '0';
-    RegWrite   <= '0';
-    ALUSrcA    <= '0';
-    ALUSrcB    <= '0';
-    ALUop      <= "0000";
+   
 
 end rtl;
 

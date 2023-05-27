@@ -132,7 +132,6 @@ begin
   end if;
 end process;
 
-
   -- MUX ALU-B
 process(ALUSrcB, REG_B,instruction_register(15 downto 0))
 begin
@@ -155,7 +154,7 @@ begin
 end process;
 
 
-  -- MUX WRITE_DATA
+-- MUX WRITE_DATA
 process(MentoReg, ALUout, memory_data_register)
 begin
   if (MentoReg='0') then
@@ -165,8 +164,8 @@ begin
   end if;
 end process;
   
-  -- MUX PC
-process(Iord, program_counter, ALUout)
+-- MUX PC
+process(IorD, program_counter, ALUout)
 begin
   if IorD ='0' then
     address <= program_counter;
@@ -175,15 +174,36 @@ begin
   end if;
 end process;
 
+-- MUX JUMP
+process(PCsource, ALUout, program_counter)
+begin
+  if IorD ='0' then
+    jump_adress <= ALUout(8 downto 0);
+  else
+    jump_adress <= program_counter;
+  end if;
+end process;
 
-  -- DECODER 
-  process(instruction_register)
-  begin
-    case instruction_register(31 downto 26) is
-      when "111111" => decoded_inst <= I_HLT;
-      when others   => decoded_inst <= I_NOP;
-    end case;  
-  end process;
+
+ -- DECODER 
+process(instruction_register)
+begin
+  case instruction_register(31 downto 26) is
+    when "111111" => 
+        decoded_inst <= I_HLT;
+        when "000000" => decoded_inst <= I_NOP;
+        when "000001" => decoded_inst <= I_LOAD;
+        when "000010" => decoded_inst <= I_STORE;
+        when "000011" => decoded_inst <= I_ADD;        
+        when "000100" => decoded_inst <= I_SUB;        
+        when "000101" => decoded_inst <= I_AND;        
+        when "000110" => decoded_inst <= I_OR;        
+        when "000111" => decoded_inst <= I_JUMP;        
+        when "001000" => decoded_inst <= I_BQE;        
+        when "001001" => decoded_inst <= I_LOAD;                         
+        when others   => decoded_inst <= I_NOP;
+  end case;  
+end process;
 
   -- ALU
   process(ALUop, A_operand, B_operand, NEG_B_operand)
@@ -192,30 +212,61 @@ end process;
     case ALUop is
       when "00001" => alu_out <= A_operand + B_operand;       -- add
       when "00010" => alu_out <= A_operand + NEG_B_operand;   -- sub
-      when "00011" => alu_out <= A_operand and 	B_operand;       -- and
-      when "00100" => alu_out <= A_operand or	B_operand;       -- or
-      when "00101" => alu_out <= A_operand nor B_operand;       -- nor
+      when "00011" => alu_out <= A_operand and 	B_operand;    -- and
+      when "00100" => alu_out <= A_operand or	B_operand;      -- or
+      when "00101" => alu_out <= A_operand nor B_operand;     -- nor
       when  others   => alu_out <= A_operand;
     end case;
 
-    zero_datapath <= not (alu_out(31) or alu_out(30) or alu_out(29) or alu_out(28) or alu_out(27) or alu_out(26) or alu_out(25) or alu_out(24) or alu_out(23) or alu_out(22) or alu_out(21) or alu_out(20) or alu_out(19) or alu_out(18) or alu_out(17) or alu_out(16) or alu_out(15) or alu_out(14) or alu_out(13) or alu_out(12) or alu_out(11) or alu_out(10) or alu_out(9) or alu_out(8) or alu_out(7) or alu_out(6) or alu_out(5) or alu_out(4) or alu_out(3) or alu_out(2) or alu_out(1) or alu_out(0));
-    neg_datapath      <= alu_out(31);
+    zero_datapath <= not(
+                          alu_out(31) or 
+                          alu_out(30) or 
+                          alu_out(29) or 
+                          alu_out(28) or 
+                          alu_out(27) or 
+                          alu_out(26) or 
+                          alu_out(25) or 
+                          alu_out(24) or 
+                          alu_out(23) or 
+                          alu_out(22) or 
+                          alu_out(21) or 
+                          alu_out(20) or 
+                          alu_out(19) or 
+                          alu_out(18) or 
+                          alu_out(17) or 
+                          alu_out(16) or 
+                          alu_out(15) or 
+                          alu_out(14) or 
+                          alu_out(13) or 
+                          alu_out(12) or 
+                          alu_out(11) or 
+                          alu_out(10) or 
+                          alu_out(9) or 
+                          alu_out(8) or 
+                          alu_out(7) or 
+                          alu_out(6) or 
+                          alu_out(5) or 
+                          alu_out(4) or 
+                          alu_out(3) or 
+                          alu_out(2) or 
+                          alu_out(1) or 
+                          alu_out(0)
+                        );
+    neg_datapath  <= alu_out(31);
 
 
   end process;
 
+  -- SINAIS QUE MUDAM COM O CLOCK 
   process(clk)
   begin
 
     -- ENTRADA DA MEMORIA
-
     if(IRWrite = '1') then
       instruction_register <= saida_memoria;
     else
       memory_data_register <= saida_memoria;
     end if;
-
-
 
     --SAIDA ALU
     ALUout <= alu_out;

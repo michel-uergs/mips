@@ -13,7 +13,6 @@ entity miTo is
   Port (
       rst_n                  : in  std_logic;
       clk                    : in  std_logic;
-      address                : in  std_logic_vector (8 downto 0);
       saida_memoria          : in  std_logic_vector (31 downto 0);   -- in data read from memory
       entrada_memoria        : out std_logic_vector (31 downto 0);   -- out_reg or alu_out to memory 
       write_mem_en           : out std_logic
@@ -81,22 +80,23 @@ data_path_i : data_path
     ------------------------------------------
     -- Nao alterar os sinais de cima ---------
     ------------------------------------------
-    PCWrite        => PCWrite_s     ,               
-    IorD           => IorD_s        ,       
-    PCsource       => PCsource_s    ,      
-    MemRead        => MemRead_s     ,      
-    MemWrite       => MemWrite_s    ,      
-    MentoReg       => MentoReg_s    ,      
-    IRWrite        => IRWrite_s     ,      
-    RegDst         => RegDst_s      ,      
-    RegWrite       => RegWrite_s    ,      
-    ALUSrcA        => ALUSrcA_s     ,      
-    ALUSrcB        => ALUSrcB_s     ,      
-    ALUop          => ALUop_s       ,     
-    decoded_inst   => decoded_inst_s,      
-    zero           => zero_s        ,
-    saida_memoria       => saida_memoria_s,                    
-    neg            => neg_s                                      
+    PCWrite         => PCWrite_s         ,               
+    IorD            => IorD_s            ,       
+    PCsource        => PCsource_s        ,      
+    MemRead         => MemRead_s         ,      
+    MemWrite        => MemWrite_s        ,      
+    MentoReg        => MentoReg_s        ,      
+    IRWrite         => IRWrite_s         ,      
+    RegDst          => RegDst_s          ,      
+    RegWrite        => RegWrite_s        ,      
+    ALUSrcA         => ALUSrcA_s         ,      
+    ALUSrcB         => ALUSrcB_s         ,      
+    ALUop           => ALUop_s           ,     
+    decoded_inst    => decoded_inst_s    ,      
+    zero            => zero_s            ,
+    saida_memoria   => saida_memoria_s   ,
+    entrada_memoria => entrada_memoria_s ,                   
+    neg             => neg_s                                      
   );
   
 memory_i : memory

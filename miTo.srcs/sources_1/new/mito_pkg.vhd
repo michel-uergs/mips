@@ -14,15 +14,16 @@ package mito_pkg is
 --NOVAS
 type decoded_instruction_type is 
 (	
-	I_LOAD,
-	I_STORE,
-	I_ADD,
-	I_SUB,
-	I_AND,
-	I_OR,
-	I_JUMP,
-	I_BQE,
-	I_LOAD
+    I_NOP,  
+    I_HLT,
+	  I_LOAD,
+	  I_STORE,
+	  I_ADD,
+	  I_SUB,
+	  I_AND,
+	  I_OR,
+	  I_JUMP,
+	  I_BQE
 );
   
   component data_path
@@ -92,9 +93,8 @@ type decoded_instruction_type is
   	port(
   		rst_n        			: in  std_logic;
   		clk          			: in  std_logic;
-  		adress       			: in  std_logic_vector (8  downto 0);
-  		saida_memoria 			: in  std_logic_vector (31 downto 0);  
-  		entrada_memoria 		: out std_logic_vector (31 downto 0); 
+  		saida_memoria 		: in  std_logic_vector (31 downto 0);  
+  		entrada_memoria 	: out std_logic_vector (31 downto 0); 
   		write_enable 			: out std_logic
   	);
   end component;

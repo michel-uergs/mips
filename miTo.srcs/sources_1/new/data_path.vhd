@@ -153,7 +153,6 @@ begin
   end if;
 end process;
 
-
 -- MUX WRITE_DATA
 process(MentoReg, ALUout, memory_data_register)
 begin
@@ -189,8 +188,9 @@ end process;
 process(instruction_register)
 begin
   case instruction_register(31 downto 26) is
-    when "111111" => 
-        decoded_inst <= I_HLT;
+        when "111111" => 
+          decoded_inst <= I_HLT;
+        
         when "000000" => decoded_inst <= I_NOP;
         when "000001" => decoded_inst <= I_LOAD;
         when "000010" => decoded_inst <= I_STORE;
@@ -199,9 +199,8 @@ begin
         when "000101" => decoded_inst <= I_AND;        
         when "000110" => decoded_inst <= I_OR;        
         when "000111" => decoded_inst <= I_JUMP;        
-        when "001000" => decoded_inst <= I_BQE;        
-        when "001001" => decoded_inst <= I_LOAD;                         
-        when others   => decoded_inst <= I_NOP;
+        when "001000" => decoded_inst <= I_BQE;   
+        when others   => decoded_inst <= I_NOP;                            
   end case;  
 end process;
 
@@ -210,11 +209,11 @@ end process;
 
   begin
     case ALUop is
-      when "00001" => alu_out <= A_operand + B_operand;       -- add
-      when "00010" => alu_out <= A_operand + NEG_B_operand;   -- sub
-      when "00011" => alu_out <= A_operand and 	B_operand;    -- and
-      when "00100" => alu_out <= A_operand or	B_operand;      -- or
-      when "00101" => alu_out <= A_operand nor B_operand;     -- nor
+      when "0001" => alu_out <= A_operand + B_operand;       -- add
+      when "0010" => alu_out <= A_operand + NEG_B_operand;   -- sub
+      when "0011" => alu_out <= A_operand and 	B_operand;    -- and
+      when "0100" => alu_out <= A_operand or	B_operand;      -- or
+      when "0101" => alu_out <= A_operand nor B_operand;     -- nor
       when  others   => alu_out <= A_operand;
     end case;
 
@@ -254,7 +253,6 @@ end process;
                         );
     neg_datapath  <= alu_out(31);
 
-
   end process;
 
   -- SINAIS QUE MUDAM COM O CLOCK 
@@ -266,6 +264,11 @@ end process;
       instruction_register <= saida_memoria;
     else
       memory_data_register <= saida_memoria;
+    end if;
+
+    -- SAIDA MEMEORIA
+    if (MemWrite='1') then
+      entrada_memoria <= REG_B;
     end if;
 
     --SAIDA ALU
@@ -309,6 +312,7 @@ end process;
       when "11101" =>   REG_A <= reg29;
       when "11110" =>   REG_A <= reg30;
       when "11111" =>   REG_A <= reg31;
+      when others  =>   REG_A <= REG_A;
     end case;
     case (b_addr) is
       when "00000" =>   REG_B <= reg0;
@@ -343,6 +347,7 @@ end process;
       when "11101" =>   REG_B <= reg29;
       when "11110" =>   REG_B <= reg30;
       when "11111" =>   REG_B <= reg31;
+      when others  =>   REG_B <= REG_B;
     end case;
     if (RegWrite = '1') then
       case (c_addr) is
@@ -378,7 +383,8 @@ end process;
         when "11101" =>   reg29 <= write_data;
         when "11110" =>   reg30 <= write_data;
         when "11111" =>   reg31 <= write_data;
-      end case;
+        when others  =>   reg0 <= reg0;
+    end case;
     end if;
   end process;
     

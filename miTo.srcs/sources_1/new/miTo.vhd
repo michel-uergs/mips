@@ -20,6 +20,8 @@ entity miTo is
 end miTo;
 
 architecture rtl of miTo is
+  
+  signal PCenable_s       : std_logic; 
   signal PCWrite_s        : std_logic;
   signal IorD_s           : std_logic;
   signal PCsource_s       : std_logic;
@@ -53,6 +55,7 @@ control_unit_i : control_unit
       ------------------------------------------
       -- Nao alterar os sinais de cima ---------
       ------------------------------------------
+      PCenable       => PCenable_s    ,
       PCWrite        => PCWrite_s     ,               
       IorD           => IorD_s        ,       
       PCsource       => PCsource_s    ,      
@@ -80,6 +83,7 @@ data_path_i : data_path
     ------------------------------------------
     -- Nao alterar os sinais de cima ---------
     ------------------------------------------
+    PCenable        => PCenable_s        ,
     PCWrite         => PCWrite_s         ,               
     IorD            => IorD_s            ,       
     PCsource        => PCsource_s        ,      

@@ -19,6 +19,7 @@ entity control_unit is
         ------------------------------------------
         -- Nao alterar os sinais de cima ---------
         ------------------------------------------
+        PCenable            : out  std_logic; 
         PCWrite             : out  std_logic;     
         IorD                : out  std_logic;
         PCsource            : out  std_logic;
@@ -39,17 +40,19 @@ end control_unit;
 
 architecture rtl of control_unit is
     -- State Machine
-    type STATE_TYPE is (START, BUSCA_INSTRUCTION, DECODE, REG, MEMORY, JUMP, FIM);
-    signal ESTADO_ATUAL : STATE_TYPE;
+    type STATE_TYPE is (START, BUSCA_INSTRUCTION, EXECUTE, DECODE, REG, FIM_EXEC, MEMORY, FIM_MEMORY, FIM_MEMORY_2, FIM_PC_ENABLE, JUMP, FIM);
+    signal ESTADO_ATUAL   : STATE_TYPE;
     signal PROXIMO_ESTADO : STATE_TYPE;
     
 begin 
     process (rst_n, clk)
     begin
-        if (rst_n = '0') then
-            ESTADO_ATUAL <= BUSCA_INSTRUCTION;
-        elsif (rising_edge(clk)) then
-            ESTADO_ATUAL <= PROXIMO_ESTADO;
+        if (clk'event and clk='1') then
+            if (rst_n = '1') then   
+                ESTADO_ATUAL <= BUSCA_INSTRUCTION;
+            else 
+                ESTADO_ATUAL <= PROXIMO_ESTADO; 
+            end if;
         end if;
     end process;
 
@@ -57,94 +60,70 @@ begin
     begin
         case ESTADO_ATUAL is
 
-            when START =>
-                if (rst_n = '0') then
-                    PROXIMO_ESTADO <= BUSCA_INSTRUCTION;
-                end if;
+            when START => 
+            write_mem_en <= '0';
+            PCenable     <= '0'; 
+            IRwrite      <= '1';
+            PROXIMO_ESTADO <= DECODE;
             
-            when BUSCA_INSTRUCTION =>
-                MemRead    <= '1';
-                IRWrite    <= '1';
-                if (decoded_inst = I_HLT) then
-                    PROXIMO_ESTADO <= FIM;
-                else
-                    PROXIMO_ESTADO <= DECODE;
-                end if;
-                
-            when DECODE =>
+            when DECODE => PROXIMO_ESTADO <= EXECUTE;
+            
+            when EXECUTE =>
                 case (decoded_inst) is
-                    when I_NOP    => PROXIMO_ESTADO <= BUSCA_INSTRUCTION;
+                    when I_NOP    => PROXIMO_ESTADO <= START;
                     when I_HLT    => PROXIMO_ESTADO <= FIM;
                     when I_ADD    => PROXIMO_ESTADO <= REG;
-                    when I_SUB    => PROXIMO_ESTADO <= BUSCA_INSTRUCTION;   
-                    when I_STORE  => PROXIMO_ESTADO <= BUSCA_INSTRUCTION;   
-                    when I_LOAD   => PROXIMO_ESTADO <= BUSCA_INSTRUCTION;   
-                    when I_AND    => PROXIMO_ESTADO <= BUSCA_INSTRUCTION;   
-                    when I_OR     => PROXIMO_ESTADO <= BUSCA_INSTRUCTION;
-                    when others   => PROXIMO_ESTADO <= BUSCA_INSTRUCTION;
+                    when I_SUB    => PROXIMO_ESTADO <= REG;   
+                    when I_STORE  => PROXIMO_ESTADO <= MEMORY;   
+                    when I_LOAD   => PROXIMO_ESTADO <= MEMORY;   
+                    when I_AND    => PROXIMO_ESTADO <= REG;   
+                    when I_OR     => PROXIMO_ESTADO <= REG;
+                    when others   => PROXIMO_ESTADO <= START;
                 end case;
                 
-            when REG =>
-                PCWrite    <= '1';
-                IorD       <= '1';
-                PCsource   <= '1';
-                MemRead    <= '1';
-                MemWrite   <= '1';
-                MentoReg   <= '1';
-                IRWrite    <= '1';
-                RegDst     <= '1';
-                RegWrite   <= '1';
-                ALUSrcA    <= '1';
-                ALUSrcB    <= '1';
-                ALUop      <= "0010";
-                PROXIMO_ESTADO <= BUSCA_INSTRUCTION;
+            when REG => 
+                --ALUop <= "0000";
+                case (decoded_inst) is
+                    when I_ADD    => ALUop <= "0001";
+                    when I_SUB    => ALUop <= "0010";  
+                    when I_AND    => ALUop <= "0011";   
+                    when I_OR     => ALUop <= "0100";
+                    when others   => ALUop <= "0000";
+                end case;
+                PROXIMO_ESTADO <= FIM_EXEC;
             
-                when MEMORY =>
-                PCWrite    <= '0';
-                IorD       <= '0';
-                PCsource   <= '0';
-                MemRead    <= '0';
-                MemWrite   <= '0';
-                MentoReg   <= '0';
-                IRWrite    <= '0';
-                RegDst     <= '0';
-                RegWrite   <= '0';
-                ALUSrcA    <= '0';
-                ALUSrcB    <= '0';
-                ALUop      <= "0000";
-                PROXIMO_ESTADO <= FIM;
+            when FIM_EXEC =>
+                MentoREG <= '0';
+                PROXIMO_ESTADO <= START;
             
-            when JUMP =>
-                PCWrite    <= '0';
-                IorD       <= '0';
-                PCsource   <= '0';
-                MemRead    <= '0';
-                MemWrite   <= '0';
-                MentoReg   <= '0';
-                IRWrite    <= '0';
-                RegDst     <= '0';
-                RegWrite   <= '0';
-                ALUSrcA    <= '0';
-                ALUSrcB    <= '0';
-                ALUop      <= "0000";
-                PROXIMO_ESTADO <= FIM;
+            when MEMORY => 
+            ALUSrcA    <= '1'; 
+            ALUSrcB    <= '1'; 
+            ALUop      <= "0000";
+            PROXIMO_ESTADO <= FIM_MEMORY;
 
-            when FIM =>
-                PCWrite    <= '0';
-                IorD       <= '0';
-                PCsource   <= '0';
-                MemRead    <= '0';
-                MemWrite   <= '0';
-                MentoReg   <= '0';
-                IRWrite    <= '0';
-                RegDst     <= '0';
-                RegWrite   <= '0';
-                ALUSrcA    <= '0';
-                ALUSrcB    <= '0';
-                ALUop      <= "0000";
-                PROXIMO_ESTADO <= FIM;
+            when FIM_MEMORY =>
+            IorD       <= '1';
+            MemRead    <= '1';
+            IRwrite    <= '0'; 
+            MentoReg   <= '1';  
+            RegDst     <= '0'; 
+            RegWrite   <= '1'; 
+            PCenable   <= '1'; 
+            PROXIMO_ESTADO <=START;
+            
+            when FIM_MEMORY_2 => 
+            RegWrite   <= '1';
+            PCenable <= '0'; 
+            PROXIMO_ESTADO <= START;
 
-            when others => PROXIMO_ESTADO <= FIM;
+            when JUMP => PROXIMO_ESTADO <= FIM;
+
+            when FIM => 
+            PCenable <= '0';
+            PROXIMO_ESTADO <= FIM;
+
+            when others => PROXIMO_ESTADO <= START;
                 
         end case;
     end process;

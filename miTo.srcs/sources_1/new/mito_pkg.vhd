@@ -14,6 +14,7 @@ package mito_pkg is
 --NOVAS
 type decoded_instruction_type is 
 (	
+    I_START, 
     I_NOP,  
     I_HLT,
 	  I_LOAD,
@@ -34,6 +35,7 @@ type decoded_instruction_type is
     	saida_memoria       : in  std_logic_vector (31 downto 0);       
     	entrada_memoria     : out std_logic_vector (31 downto 0);     
 
+      PCenable            : in  std_logic;
     	PCWrite             : in  std_logic;     
     	IorD                : in  std_logic;
     	PCsource            : in  std_logic;
@@ -59,6 +61,7 @@ type decoded_instruction_type is
         rst_n               : in  std_logic;
         write_mem_en        : out std_logic;
 
+        PCenable            : out  std_logic;
         PCWrite             : out  std_logic;     
         IorD                : out  std_logic;
         PCsource            : out  std_logic;
